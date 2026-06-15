@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Pokemon } from '../pokemon/pokemon';
+// import { Pokemon } from '../pokemon/pokemon';
 
 @Component({
   selector: 'app-header',
-  imports: [Pokemon],
+  imports: [],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

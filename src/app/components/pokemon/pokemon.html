@@ -9,47 +9,48 @@
 <body>
 
   <svg style="display:none">
-  <filter id="container-glass"
-          x="0%"
-          y="0%"
-          width="100%"
-          height="100%">
+    <filter id="container-glass"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%">
 
-    <feTurbulence
-      type="fractalNoise"
-      baseFrequency="0.008 0.008"
-      numOctaves="2"
-      seed="92"
-      result="noise"/>
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.008 0.008"
+        numOctaves="2"
+        seed="92"
+        result="noise"/>
 
-    <feGaussianBlur
-      in="noise"
-      stdDeviation="0.02"
-      result="blur"/>
+      <feGaussianBlur
+        in="noise"
+        stdDeviation="0.02"
+        result="blur"/>
 
-    <feDisplacementMap
-      in="SourceGraphic"
-      in2="blur"
-      scale="77"
-      xChannelSelector="R"
-      yChannelSelector="G"/>
-  </filter>
-</svg>
+      <feDisplacementMap
+        in="SourceGraphic"
+        in2="blur"
+        scale="77"
+        xChannelSelector="R"
+        yChannelSelector="G"/>
+    </filter>
+  </svg>
             
   <div class="pokemonContainer" id="pokemonContainer">
   
-  @for (pokemon of pokemons; track pokemon.id) {      
-        
+  @for (pokemon of pokemons; track pokemon.id) {
      <div class="pokemon">
       <div class="imgContainer">
         <img [src]="pokemon.image" [alt]="pokemon.name" class="imgPokemon">
       </div>
       <div class="infoPokemon">
-        <span class="num" style="font-size: small"> {{pokemon.id}} </span>
-        <h3 class="name"> {{pokemon.name}} </h3>
+        <span class="num" style="font-size: small"> {{ pokemon.id }} </span>
+        <h3 class="name"> {{ pokemon.name }} </h3>
         <small class="types">Type: 
-          <span class="type1"> {{pokemon.type1}} </span>  
-          @if (pokemon.type2){ / <span class="type2"> {{pokemon.type2}} </span> }
+          <span class="type1"> {{ pokemon.type1 }} </span>  
+          @if (pokemon.type2){
+            <span class="type2"> {{ pokemon.type2 }} </span> 
+          }
         </small>
       </div>
     </div>

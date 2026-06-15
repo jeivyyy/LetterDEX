@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LetterDEX</title>
+</head>
+
+<body>
+  <div class="pokemonContainer" id="pokemonContainer">
+
+  @for (pokemon of pokemons; track pokemon.id) {      
+
+     <div class="pokemon">
+      <div class="imgContainer">
+        <img [src]="pokemon.image" [alt]="pokemon.name" class="imgPokemon">
+      </div>
+      <div class="infoPokemon">
+        <span class="num" style="font-size: small"> {{pokemon.id}} </span>
+        <h3 class="name"> {{pokemon.name}} </h3>
+        <small class="types">Tipo: 
+          <span class="type1"> {{pokemon.type1}} </span>  
+          @if (pokemon.type2){ / <span class="type2"> {{pokemon.type2}} </span> }
+        </small>
+      </div>
+    </div>
+  }
+  </div>
+  
+</body>
+</html>

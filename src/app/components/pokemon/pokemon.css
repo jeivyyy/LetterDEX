@@ -1,0 +1,52 @@
+@import url('https://font.download/font/gill-sans-2');
+
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body, .type1, .type2{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.pokemonContainer{
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    
+} 
+
+.imgContainer{
+    max-width: 10em;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    box-shadow: inset 0 3px 15px rgba(100, 100, 100, 0.5);
+    
+}
+
+.imgPokemon{
+    opacity: 100%;
+
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
+.pokemon{
+    background-color: rgba(198, 196, 196, 0.285);
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+    margin: 10px;
+    border-radius: 10%;
+    text-align: center;
+    padding: 10px;
+}

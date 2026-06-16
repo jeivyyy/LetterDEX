@@ -56,8 +56,8 @@ export class Pokemon implements OnInit {
       })
   }
 
-  // runs through the api's list and fetch the right data
-  // based on the 'id'
+  // runs through the api's list and fetch the right data, based on the 'id'
+  
   async fetchPokemon(){
     for (let i = 1; i <= this.pokemonCount; i++) {
       await this.getPokemon(i)

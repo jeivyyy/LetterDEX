@@ -1,5 +1,6 @@
 @import url('https://font.download/font/gill-sans-2');
 
+
 *{
     box-sizing: border-box;
     margin: 0%;
@@ -37,7 +38,6 @@ body, .type1, .type2{
 
 .imgPokemon{
     opacity: 100%;
-
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -45,21 +45,13 @@ body, .type1, .type2{
 }
 
 
-.imgContainer,
-.infoPokemon{
+.imgContainer, .infoPokemon{
     position: relative;
     z-index: 2;
 }
 
 
 .pokemon{
-    /* background-color: rgba(198, 196, 196, 0.285);
-    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
-    margin: 10px;
-    border-radius: 10%;
-    text-align: center;
-    padding: 10px; */
-
     padding: 10px;
     margin: 10px;
     position: relative;
@@ -71,7 +63,7 @@ body, .type1, .type2{
     isolation: isolate;
     box-shadow:0 8px 10px rgba(0,0,0,.15);
     transition: .3s;
-    max-width: 120px;
+    max-width: 160px;
 }
 
 

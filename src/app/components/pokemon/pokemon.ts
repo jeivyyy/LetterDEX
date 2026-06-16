@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class Pokemon implements OnInit {
 
   pokemons: any[] = []
-  pokemonCount = 400
+  pokemonCount = 151
 
   colors = {
     fire: '#FDDFDF',
@@ -46,23 +46,19 @@ export class Pokemon implements OnInit {
 
       this.pokemons.push({
         id: pokemon.id.toString().padStart(3, '0'),
-
         name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
-
         image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`,
-
         type1: pokemonTypes[0],
         type2: pokemonTypes[1] ?? ''
       })
-  }
+  } 
 
   // runs through the api's list and fetch the right data, based on the 'id'
-  
   async fetchPokemon(){
     for (let i = 1; i <= this.pokemonCount; i++) {
       await this.getPokemon(i)
     }
-  }
+  } 
 
   ngOnInit() {
     this.fetchPokemon();

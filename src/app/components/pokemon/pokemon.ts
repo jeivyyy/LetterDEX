@@ -33,10 +33,10 @@ export class Pokemon implements OnInit {
   firstType = Object.keys(this.colors)
   secondType = Object.keys(this.colors)
 
-
+  
   // confirms that the system is working and get the
   // especific value that it needs (.name)
-  async getPokemon(id: any) {
+  async getPokemon(id: number) {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const resp = await fetch(url);
     const pokemon = await resp.json();

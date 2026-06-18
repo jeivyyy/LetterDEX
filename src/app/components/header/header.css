@@ -1,6 +1,6 @@
 /* this CSS file will follow the same struture as the header.html file */
 
-html, *{
+html{
     margin: 0%;
     padding: 0%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -13,7 +13,8 @@ html, *{
 
 .header{
     /* background-color: #f24855; */
-    display: flex;
+    justify-content: center;
+    align-content: center;
     max-height: 100px;
     background: linear-gradient(
         to right,
@@ -22,6 +23,38 @@ html, *{
     );
     border-radius: 10px;
     box-shadow: 0 3px 10px #2424248f;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+
+.header::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    -webkit-box-shadow: 
+        inset 2px 2px 0px -2px rgba(255, 255, 255, 0.7), 
+        inset 0 0 3px 1px rgba(255, 255, 255, 0.7);
+            box-shadow: inset 2px 2px 0px -2px rgba(255, 255, 255, 0.7), 
+            inset 0 0 3px 1px rgba(255, 255, 255, 0.7);
+}
+
+.header::after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: 10%;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+    -webkit-filter: url(#container-glass);
+            filter: url(#container-glass);
+    overflow: hidden;
+    isolation: isolate;
 }
 
 
@@ -32,6 +65,7 @@ html, *{
     flex-wrap: wrap;
     justify-content: baseline;
     align-items: center;
+    justify-content: space-evenly;
 }   
 
 .imgLogo{
@@ -42,8 +76,8 @@ html, *{
 }
 
 .ldx-title{
-    width: 100px;
-    height: 100px;
+    max-width: 80%;
+    max-height: 80%;
 }
 
 
@@ -87,21 +121,20 @@ html, *{
     cursor: pointer;
     transition: all 250ms;
     display: inline-flex;
+    justify-content: center;
     align-items: center;
     text-align: center;
-
-    background-color: #f0f0f0;
-    color: #242424;
     border-radius: 0.5rem;
+
     box-shadow: 
     inset 0 1px 0 0 #f4f4f4,
-    0 1px 0 0 #efefef,
-    0 2px 0 0 #ececec,
-    0 4px 0 0 #e0e0e0,
-    0 5px 0 0 #dedede,
-    0 6px 0 0 #dcdcdc,
-    0 7px 0 0 #cacaca,
-    0 7px 8px 0 #cecece;
+    0 1px 0 0 #5c5c5cdd,
+    0 2px 0 0 #5f5f5fb5,
+    0 4px 0 0 #5d5d5d,
+    0 5px 0 0 #5e5e5ec2,
+    0 6px 0 0 #5c5c5cbb,
+    0 7px 0 0 #5a5a5acb,
+    0 7px 8px 0 #5e5e5ea5;
 
 }
 
@@ -119,6 +152,10 @@ html, *{
     0 4px 6px 0 #cecece;
 }
 
+.bt-gmax-forms{
+    width: 130px;
+}
+
 
 /* User Profile */
 .userContainer{
@@ -128,19 +165,65 @@ html, *{
     padding-right: 20px;
 }
 
+.bt-user-style{
+    position: relative;
+    border: none;
+    cursor: pointer;
+    transition: all 250ms;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    color: #242424;
+    box-shadow: 
+    inset 0 1px 0 0 #f4f4f4,
+    0 1px 0 0 #5c5c5c,
+    0 2px 0 0 #5f5f5f,
+    0 4px 0 0 #5d5d5d,
+    0 5px 0 0 #5e5e5e,
+    0 6px 0 0 #5c5c5c,
+    0 7px 0 0 #5a5a5a,
+    0 7px 8px 0 #5e5e5e;
+
+}
+
+.bt-user-style:hover{
+    transform: translateY(4px);
+    box-shadow: 
+    inset 0 1px 0 0 #f4f4f4,
+    0 1px 0 0 #efefef,
+    0 1px 0 0 #ececec,
+    0 2px 0 0 #e0e0e0,
+    0 2px 0 0 #dedede,
+    0 3px 0 0 #dcdcdc,
+    0 4px 0 0 #cacaca,
+    0 7px 8px 0 #cecece;
+}
+
 .userAccount{
+
     align-items: end;
     justify-content: end;   
+
+    padding: 3px ;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 250ms;
+    display: inline-flex;
+    justify-content: center;
 }
 
 .imgUser{
     max-width: 70px;
     max-height: 70px;
     border-radius: 50%;
-    border-width: 200px;
     align-items: end;
     justify-content: end;
 }
+
 
 
 

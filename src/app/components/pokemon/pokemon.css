@@ -94,4 +94,4 @@ body, .type1, .type2{
             filter: url(#container-glass);
     overflow: hidden;
     isolation: isolate;
-}
+} 

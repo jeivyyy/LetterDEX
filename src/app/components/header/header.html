@@ -1,19 +1,18 @@
 <!-- topnav= pokedex completa, mega, gmax, sobre -->
 <html>
 
-  
-
-    <div class="header"> 
-
     <!-- Logo division -->
     <div class="logoContainer">
-       <a class="bt-logo-style">
-         <img src="https://github.com/jeivyyy/LetterDEX/blob/master/src/app/assets/img/ldx-logo.gif?raw=true" alt="" class="imgLogo">
-       </a>
-        <!-- <img src="https://github.com/jeivyyy/LetterDEX/blob/master/src/app/assets/img/letterdex-title.png?raw=true" alt="" class="ldx-title"> -->
+       <button class="bt-logo-style" id="bt-next-pokemon" (click)="changePokemonImg()">
+         <img src="https://github.com/jeivyyy/LetterDEX/blob/master/src/app/assets/img/ldx-logo-2.gif?raw=true" alt="" class="imgLogo">
+         <img [src]="pokemonSprite" alt="" class="img-pokemon" id="img-pokemon">
+       </button>
+        <img src="img/logo-test.gif" alt="" class="ldx-title">   
     </div>
 
-
+    <!-- Header's start -->
+    <div class="header"> 
+    
     <!-- Navigation --> 
     <div class="navContainer">
             <ul class="nav bt-style">
@@ -32,7 +31,7 @@
             </button>
        </a>
     </div>
-</div> 
+</div>  
 <!-- end 'class="Header"' -->
 </html>
 

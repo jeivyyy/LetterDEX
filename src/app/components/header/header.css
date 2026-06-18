@@ -1,6 +1,10 @@
 /* this CSS file will follow the same struture as the header.html file */
 
 html{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
     align-items: center;
     justify-content: center;
     margin: 0%;
@@ -15,6 +19,8 @@ html{
 
 .header{
     /* background-color: #f24855; */
+    margin-bottom: 100px;
+    width: 77%;
     justify-content: center;
     align-content: center;
     max-height: 100px;
@@ -23,6 +29,7 @@ html{
         #f24855 25%,
         #d53345 75% 
     );
+    border: #ed4c5a;
     border-radius: 10px;
     box-shadow: 0 3px 10px #2424248f;
     display: -webkit-box;
@@ -43,16 +50,15 @@ html{
 }   
 
 .imgLogo{
-    width: 90px;
-    height: 90px;
+    width: 250px;
+    height: 200px;
     background-color: #24242478;
     
 }
 
 .bt-logo-style{
-    /* position: relative;
-    padding: 0.75rem;
-    font-weight: 600;
+    position: relative;
+    padding: 0.40rem;
     border: none;
     cursor: pointer;
     transition: all 250ms;
@@ -60,7 +66,8 @@ html{
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 50%;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
 
     box-shadow: 
     inset 0 1px 0 0 #f4f4f4,
@@ -70,11 +77,11 @@ html{
     0 5px 0 0 #5e5e5ec2,
     0 6px 0 0 #5c5c5cbb,
     0 7px 0 0 #5a5a5acb,
-    0 7px 8px 0 #5e5e5ea5; */
+    0 7px 8px 0 #5e5e5ea5;
 }
 
 .bt-logo-style:hover{
-    /* transform: translateY(4px);
+    transform: translateY(4px);
     box-shadow: 
     inset 0 1px 0 0 #f4f4f4,
     0 1px 0 0 #efefef,
@@ -83,8 +90,21 @@ html{
     0 2px 0 0 #dedede,
     0 3px 0 0 #dcdcdc,
     0 4px 0 0 #cacaca,
-    0 4px 6px 0 #cecece; */
+    0 4px 6px 0 #cecece;
 }
+
+.img-pokemon{
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    bottom: 20%;
+
+    transform: translate(-50%, -20%);
+    width: 120px;
+    height: 120px;
+}
+
 
 
 

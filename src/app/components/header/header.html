@@ -1,38 +1,49 @@
 <!-- topnav= pokedex completa, mega, gmax, sobre -->
 <html>
+  <!-- Logo division -->
+  <div class="logoContainer">
+    <button class="bt-logo-style" id="bt-next-pokemon" (click)="changePokemonImg()">
+      <img
+        src="https://github.com/jeivyyy/LetterDEX/blob/master/src/app/assets/img/ldx-logo-2.gif?raw=true"
+        alt=""
+        class="imgLogo"
+      />
+      <img [src]="pokemonSprite" alt="" class="img-pokemon" id="img-pokemon" />
+    </button>
+  </div>
 
-    <!-- Logo division -->
-    <div class="logoContainer">
-       <button class="bt-logo-style" id="bt-next-pokemon" (click)="changePokemonImg()">
-         <img src="https://github.com/jeivyyy/LetterDEX/blob/master/src/app/assets/img/ldx-logo-2.gif?raw=true" alt="" class="imgLogo">
-         <img [src]="pokemonSprite" alt="" class="img-pokemon" id="img-pokemon">
-       </button>
-        <img src="img/logo-test.gif" alt="" class="ldx-title">   
-    </div>
-
-    <!-- Header's start -->
-    <div class="header"> 
-    
-    <!-- Navigation --> 
+  <!-- Header's start -->
+  <div class="header">
+    <!-- Navigation -->
     <div class="navContainer">
-            <ul class="nav bt-style">
-            <li class="pokedex"><button class="bt-pokedex">Pokedéx</button></li>
-            <li class="mega-forms"><button class="bt-mega-forms">Mega</button></li>
-            <li class="gmax-forms"><button class="bt-gmax-forms">G-Max</button></li>
-            <li class="about"><button class="bt-about">About</button></li>
-        </ul>
+      <button class="bt-logo-header">
+        <img
+          src="https://github.com/jeivyyy/LetterDEX/blob/master/src/app/assets/img/logo-test.gif?raw=true"
+          alt=""
+          class="ldx-title"
+        />
+      </button>
+      <ul class="nav bt-style">
+        <li class="pokedex"><button class="bt-pokedex">Pokedéx</button></li>
+        <li class="mega-forms"><button class="bt-mega-forms">Mega</button></li>
+        <li class="gmax-forms"><button class="bt-gmax-forms">G-Max</button></li>
+        <li class="about"><button class="bt-about">About</button></li>
+      </ul>
     </div>
 
     <!-- User's profile -->
     <div class="userContainer">
-       <a href="" class="bt-user-style">
-            <button class="userAccount">
-                <img src="https://imgs.search.brave.com/QlhxlI-XiT8WyG9-tD_WoItq7dJ43BvIkd6qt5yk_m8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzYxL2U1/L2Q5LzYxZTVkOWFl/OWRlYmQ1ZmJkODdi/MzliMTA2OTZhZjVi/LmpwZw" alt="" class="imgUser" id="imgUser">
-            </button>
-       </a>
+      <a href="" class="bt-user-style">
+        <button class="userAccount">
+          <img
+            src="https://imgs.search.brave.com/QlhxlI-XiT8WyG9-tD_WoItq7dJ43BvIkd6qt5yk_m8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzYxL2U1/L2Q5LzYxZTVkOWFl/OWRlYmQ1ZmJkODdi/MzliMTA2OTZhZjVi/LmpwZw"
+            alt=""
+            class="imgUser"
+            id="imgUser"
+          />
+        </button>
+      </a>
     </div>
-</div>  
-<!-- end 'class="Header"' -->
+  </div>
+  <!-- end 'class="Header"' -->
 </html>
-
-

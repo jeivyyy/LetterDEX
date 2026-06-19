@@ -18,11 +18,13 @@ html{
 
 
 .header{
-    /* background-color: #f24855; */
+    
     margin-bottom: 100px;
     width: 77%;
-    justify-content: center;
+    /* justify-content: center; */
+    justify-content: space-evenly;
     align-content: center;
+    align-items: center;
     max-height: 100px;
     background: linear-gradient(
         to right,
@@ -103,6 +105,48 @@ html{
     transform: translate(-50%, -20%);
     width: 120px;
     height: 120px;
+}
+
+.ldx-title{
+    width: 90px;
+    height: 50px;
+}
+
+.bt-logo-header{
+    position: relative;
+    padding: 0.40rem;
+    border: none;
+    cursor: pointer;
+    transition: all 250ms;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+
+    box-shadow: 
+    inset 0 1px 0 0 #f4f4f4,
+    0 1px 0 0 #5c5c5cdd,
+    0 2px 0 0 #5f5f5fb5,
+    0 4px 0 0 #5d5d5d,
+    0 5px 0 0 #5e5e5ec2,
+    0 6px 0 0 #5c5c5cbb,
+    0 7px 0 0 #5a5a5acb,
+    0 7px 8px 0 #5e5e5ea5;
+}
+
+.bt-logo-header:hover{
+    transform: translateY(4px);
+    box-shadow: 
+    inset 0 1px 0 0 #f4f4f4,
+    0 1px 0 0 #efefef,
+    0 1px 0 0 #ececec,
+    0 2px 0 0 #e0e0e0,
+    0 2px 0 0 #dedede,
+    0 3px 0 0 #dcdcdc,
+    0 4px 0 0 #cacaca,
+    0 4px 6px 0 #cecece;
 }
 
 

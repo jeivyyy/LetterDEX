@@ -41,8 +41,7 @@ export class Pokemon implements OnInit {
     const resp = await fetch(url);
     const pokemon = await resp.json();
 
-    const pokemonTypes: string[] = 
-      pokemon.types.map((type: any) => type.type.name)
+    const pokemonTypes: string[] = pokemon.types.map((types: any) => types.type.name)
 
       this.pokemons.push({
         id: pokemon.id.toString().padStart(3, '0'),

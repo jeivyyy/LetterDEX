@@ -1,0 +1,125 @@
+@if (pokemon) {
+
+  <button class="back" routerLink="/pokemon">
+    Go back.
+  </button>
+
+  <div class="pokemon-img-container">
+    <img
+      [src]="pokemon.image"
+      [alt]="pokemon.name"
+      class="pokemon-zoom-out-img"
+      id="pokemon-zoom-out-img"
+    /> 
+  </div>
+
+  <div class="info-grid">
+
+    <div class="status-info">
+
+      <div class="types">
+        @for (type of pokemon.types; track type) {
+          <div class="type1">
+            {{ type }}
+          </div>
+        }
+      </div>
+
+      <div class="abilities">
+        @for (ability of pokemon.abilities; track ability.name) {
+          <div class="abls">
+            {{ ability.name }}
+
+            @if (ability.hidden) {   
+              <span ></span>
+            }     
+          </div>
+        }
+      </div>
+
+      <div class="base-status-grid">
+
+        @for (stat of stats; track stat.name) {
+          <div class="status-row">
+            <div class="sts-card">
+              <div class="slider">
+                <div 
+                  class="slider-progress"
+                  [style.width.%]="statPercent(stat.value)"
+                >
+                  <small class="sts-name">
+                    {{ stat.label }}:
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div class="sts-value">
+              {{ stat.value }}
+            </div>
+          </div>
+        }
+
+        <span class="name-total">
+          Total:
+          <span class="total-value">
+            {{ totalStats }}
+          </span>
+        </span>
+
+      </div>
+    </div>
+
+    <div class="misc-infos">
+      <div class="span-info">
+        <span class="name">
+          {{ pokemon.name }}
+        </span>
+      </div>
+
+      <div class="span-info">
+        <span class="weight">
+          Weight: {{ pokemon.weightKg }} kg
+        </span>
+      </div>
+
+      <div class="span-info">
+        <span class="height">
+          Height: {{ pokemon.heightM }} meters
+        </span>
+      </div>
+
+      <div class="span-info">
+        <span class="friend">
+          Base Friendship: {{ species?.base_happiness ?? 'N/A' }} points
+        </span>
+      </div>
+    </div>     
+
+    <div class="moves-info">
+      <div class="search-bar">
+        <input
+          type="text"
+          placeholder="Search by name!"
+          class="search-moves"
+          id="search-moves"
+        />
+      </div>
+
+      <div class="select-section">
+        <select class="learned-moves" name="search" id="learned-moves">
+          <option value="">By Level-up</option>
+          <option value="">By TM's</option>
+          <option value="">By Egg Groups</option>
+        </select>
+      </div>
+
+      <div class="card-moves">
+      </div>
+    </div>
+
+  </div>
+
+} @else {
+  <p>Loading Pokémon details...</p>
+}

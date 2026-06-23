@@ -29,11 +29,14 @@
         yChannelSelector="G"/>
     </filter>
   </svg>
-            
-  <div class="pokemonContainer" id="pokemonContainer">
-  
-  @for (pokemon of pokemons; track pokemon.id) {     
-     <div class="pokemon">
+        
+  <button class="back">
+      Go back.
+    </button>
+  <div class="pokemonContainer" id="pokemonContainer">    
+    
+  @for (pokemon of pokemons; track pokemon.id) {      
+     <div class="pokemon" [routerLink]="['/pokemon', pokemon.id]"  role="button" tabindex="0">
       <div class="imgContainer">
         <img [src]="pokemon.image" [alt]="pokemon.name" class="imgPokemon">
       </div>

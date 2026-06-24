@@ -1,89 +1,102 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.pokemon-img-container{
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    display: flex;
-    flex-wrap: wrap;
+
+
+.pokemon-details-card {
+  width: 50%;
+  max-width: 760px;
+
+  margin: 10px;
+
+  padding-right: 40px;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: start;
+  gap: 28px;
+
+  background-color: #f7f4f4;
+  border-radius: 28px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
 }
 
-.pokemon-zoom-out-img{
-    width: 400px;
-    height: 400px;
+.pokemon-img-container {
+  width: 280px;
+  height: 280px;
+  position: absolute;
+  left: 420px;
+  top: -20px;
 }
 
-.info-grid{
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: start;
-
-    
+.pokemon-zoom-out-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-.misc-infos{
-    background-color: #f0ebeb61;
-    border-radius: 6%;
-    padding: 1.5%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: baseline;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 20px;
-    width: 307.77px;
-     box-shadow: 0 3px 10px rgba(0,0,0,.30);
+.info-grid {
+  width: 100%;
+  max-height: 430px;
+  overflow: scroll;
+  overflow: hidden;
+  overflow-y: auto hidden;
+  padding: 20px;
 }
 
-.span-info{
-    background-color: #f1ecec;
-    flex-wrap: wrap;
-    font-size: 120%;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 999px;
-    border-style: none;
-    box-shadow: 0 1px 4px rgba(0,0,0,.30);
-    width: 100%;
-    height: 30px;
-    align-content: center;
+.status-info {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 
-.status-info{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 307.77px;
-    gap: 30px;
+.misc-infos {
+  width: 100%;
 
-    background-color: #f0ebeb61;
-    width: 307.77px;
-     box-shadow: 0 3px 10px rgba(0,0,0,.30);
-    padding: 1.5%;
-    border-radius: 6%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  margin-bottom: 22px;
+}
+
+.span-info {
+  width: 50%;
+  min-height: 36px;
+
+  background-color: #f1ecec;
+  font-size: 100%;
+  font-weight: bold;
+  text-align: center;
+
+  border-radius: 999px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .types {
-  width: 100%;
+  width: 50%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
 
 .type1,
 .type2 {
+  min-height: 36px;
+
   text-align: center;
   border-radius: 999px;
-  border-style: none;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, .30);
-  width: 100%;
-  height: 30px;
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.3);
 
   display: flex;
   align-items: center;
@@ -91,101 +104,143 @@
 }
 
 .abilities {
-    align-content: center;
-    justify-content: center;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+  width: 50%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
 
 .abls {
-    text-align: center;
-    border-radius: 999px;
-    border-style: none;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, .30);
-    width: 100%;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  min-height: 36px;
+
+  text-align: center;
+  border-radius: 999px;
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-
-.moves-info{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: end;
-    align-items: end;
-    width: 307.77px;
-    gap: 10px;
-
-    background-color: #f0ebeb61;
-     box-shadow: 0 3px 10px rgba(0,0,0,.30);
-    padding: 1.5%;
-    border-radius: 6%;
-}
-
-
-/* STATUS SLIDER */
 .base-status-grid {
   width: 100%;
+
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+
+  margin-top: 6px;
 }
 
 .status-row {
   width: 100%;
+
   display: flex;
   align-items: center;
+  gap: 1px;
 }
 
 .sts-card {
   flex: 1;
-  height: 23px;
+  height: 28px;
   background-color: #ddd;
   border: 1px solid black;
-  border-radius:    999px;
+  border-radius: 999px;
   overflow: hidden;
-  align-content: center;
 }
 
 .slider {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .slider-progress {
   height: 100%;
+
   background-color: #4caf50;
   transition: width 0.3s ease;
-  display: flex;
-  align-items: center;
+
+  border-radius: 999px;
 }
 
 .sts-name {
-  position: relative;
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+
   font-size: medium;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin: 3px;
+  padding: 2px 12px;
+
   border-radius: 999px;
-  background-color: #fff;
-  background-image: linear-gradient(
-    to bottom,
-    #dbdada 90%,
-    #c7c6c6 10%
-  );
+  background-color: #e7e7e7;
+  box-shadow: inset 0 2px 5px rgb(0, 0, 0, 0.15);
 }
 
 .sts-value {
-  width: 45px;
-  margin-left: 8px;
+  width: 48px;
+
   font-size: 18px;
   font-weight: bold;
   text-align: right;
 }
 
+.name-total {
+  margin-top: 4px;
 
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.bt-backg {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100px;
+  height: 60px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 46px;
+  background-color: #f24855;
+  border-radius: 9px;
+}
+
+.back {
+  position: relative;
+  padding: 0.4rem;
+  border: none;
+  cursor: pointer;
+  transition: all 250ms;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+
+  box-shadow:
+    inset 0 1px 0 0 #f4f4f4,
+    0 1px 0 0 #5c5c5cdd,
+    0 2px 0 0 #5f5f5fb5,
+    0 4px 0 0 #5d5d5d,
+    0 5px 0 0 #5e5e5ec2,
+    0 6px 0 0 #5c5c5cbb,
+    0 7px 0 0 #5a5a5acb,
+    0 7px 8px 0 #5e5e5ea5;
+}
+
+.back:hover {
+  transform: translateY(4px);
+  box-shadow:
+    inset 0 1px 0 0 #f4f4f4,
+    0 1px 0 0 #efefef,
+    0 1px 0 0 #ececec,
+    0 2px 0 0 #e0e0e0,
+    0 2px 0 0 #dedede,
+    0 3px 0 0 #dcdcdc,
+    0 4px 0 0 #cacaca,
+    0 4px 6px 0 #cecece;
+}

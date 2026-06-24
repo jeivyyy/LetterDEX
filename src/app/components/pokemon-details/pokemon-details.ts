@@ -45,7 +45,7 @@ export class PokemonDetails implements OnInit {
       image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonData.id}.png`,
       heightM: pokemonData.height / 10,
       weightKg: pokemonData.weight / 10,
-     types: pokemonData.types.map((item: any) => item.type.name.toUpperCase()),
+      types: pokemonData.types.map((item: any) => item.type.name.toUpperCase()),
       abilities: pokemonData.abilities.map((item: any) => ({
         name: this.capitalize(item.ability.name),
         hidden: item.is_hidden,
@@ -80,5 +80,36 @@ export class PokemonDetails implements OnInit {
 
   capitalize(value: string) {
     return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+
+  typeImages: Record<string, string> = {
+    NORMAL: '',
+    FIRE: '',
+    WATER: '',
+    ELECTRIC: '',
+    GRASS: '',
+    ICE: '',
+    FIGHTING: '',
+    POISON: '',
+    GROUND: '',
+    FLYING: '',
+    PSYCHIC: '',
+    BUG: '',
+    ROCK: '',
+    GHOST: '',
+    DRAGON: '',
+    DARK: '',
+    STEEL: '',
+    FAIRY: '',
+  };
+
+  getTypeBackground(type: string): string {
+    const imageUrl = this.typeImages[type];
+
+    if (!imageUrl) {
+      return 'none';
+    }
+
+    return `url("${imageUrl}")`;
   }
 }

@@ -1,4 +1,4 @@
-<body>
+<div class="info">
   @if (pokemon) {
     <div class="bt-backg">
       <button class="back" routerLink="/pokemon">Go back.</button>
@@ -9,12 +9,12 @@
         [src]="pokemon.image"
         [alt]="pokemon.name"
         class="pokemon-zoom-out-img"
-        id="pokemon-zoom-out-img"
-      />
-    </div>
+        id="pokemon-zoom-out-img" 
+      />  
+    </div>             
 
     <div class="pokemon-details-card">
-      <div class="info-grid">
+      <div class="info-grid">  
         <div class="misc-infos">
           <div class="span-info">
             <span class="name">
@@ -27,7 +27,7 @@
           <div class="types">
             @for (type of pokemon.types; track type) {
               <div class="type" [style.background-image]="getTypeBackground(type)">
-                {{ type }}
+                {{ type }} 
               </div>
             }
           </div>
@@ -39,7 +39,7 @@
               </div>
             }
           </div>
-
+        
           <div class="base-status-grid">
             @for (stat of stats; track stat.name) {
               <div class="status-row">
@@ -59,7 +59,7 @@
 
             <span class="name-total">
               Total:
-              <span class="total-value">
+              <span class="total-value">        
                 {{ totalStats }}
               </span>
             </span>
@@ -68,6 +68,11 @@
       </div>
     </div>
   } @else {
-    <p>Loading Pokémon details...</p>   
+    <p>Loading Pokémon details...</p>    
   }
-</body>
+
+  <div class="comment">
+
+  </div>
+
+</div>

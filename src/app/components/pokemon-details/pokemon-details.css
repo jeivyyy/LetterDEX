@@ -4,14 +4,15 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-
+.info{
+  width: 600px;
+}
 
 .pokemon-details-card {
-  width: 50%;
+  width: 100%;
   max-width: 760px;
 
   margin: 10px;
-
   padding-right: 40px;
 
   display: flex;
@@ -29,8 +30,8 @@
   width: 280px;
   height: 280px;
   position: absolute;
-  left: 420px;
-  top: -20px;
+  left: 380px;
+  top: 10px;
 }
 
 .pokemon-zoom-out-img {
@@ -70,7 +71,7 @@
   width: 50%;
   min-height: 36px;
 
-  background-color: #f1ecec;
+
   font-size: 100%;
   font-weight: bold;
   text-align: center;
@@ -90,17 +91,26 @@
   gap: 14px;
 }
 
-.type1,
-.type2 {
-  min-height: 36px;
-
-  text-align: center;
-  border-radius: 999px;
-  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.3);
+.type {
+  width: 100%;
+  height: 36px;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  text-align: center;
+  border-radius: 999px;
+  border-style: none;
+  box-shadow:  0 3px 10px rgba(0, 0, 0, .30);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .8);
 }
 
 .abilities {

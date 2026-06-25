@@ -10,7 +10,7 @@
         [alt]="pokemon.name"
         class="pokemon-zoom-out-img"
         id="pokemon-zoom-out-img" 
-      />  
+      />    
     </div>             
 
     <div class="pokemon-details-card">
@@ -19,14 +19,14 @@
           <div class="span-info">
             <span class="name">
               {{ pokemon.name }}
-            </span>
+            </span>       
           </div>
         </div>
 
         <div class="status-info">
           <div class="types">
             @for (type of pokemon.types; track type) {
-              <div class="type" [style.background-image]="getTypeBackground(type)">
+              <div class="type" [style.background-image]="getTypeBackground(type)">     
                 {{ type }} 
               </div>
             }

@@ -6,21 +6,21 @@ import { Pokemon } from './components/pokemon/pokemon';
 import { PokemonDetails } from './components/pokemon-details/pokemon-details';
 
 export const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'header',
-    pathMatch: 'full',
-  },
+  // {
+  //   path: '',
+  //   redirectTo: 'header',
+  //   pathMatch: 'full',
+  // },
 
-  {
-    path: 'auth',
-    component: Auth,
-  },
+  // {
+  //   path: 'auth',
+  //   component: Auth,
+  // },
 
-  {
-    path: 'header',
-    component: Header,
-  },
+  // {
+  //   path: 'header',
+  //   component: Header,
+  // },
 
   {
     path: 'pokemon/:id',
@@ -32,8 +32,8 @@ export const routes: Routes = [
     component: Pokemon,
   },
 
-  {
-    path: '**',
-    redirectTo: 'header',
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: 'header',
+  // },
 ];

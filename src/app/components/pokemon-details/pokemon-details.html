@@ -11,8 +11,8 @@
         class="pokemon-zoom-out-img"
         id="pokemon-zoom-out-img"  
       />    
-    </div>             
-
+    </div>               
+   
     <div class="pokemon-details-card">           
       <div class="info-grid">  
         <div class="misc-infos">
@@ -28,7 +28,7 @@
             @for (type of pokemon.types; track type) {
               <div class="type" [style.background-image]="getTypeBackground(type)">     
                 {{ type }} 
-              </div>
+              </div>   
             }
           </div>
 

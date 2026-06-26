@@ -1,1 +1,40 @@
-<p>poke-gmax works!</p>
+<button class="back" routerLink="/header">Go back.</button>
+
+<div class="pokemonContainer" id="pokemonContainer">
+  @for (gmax of gmaxPokemons; track gmax.routeName) {
+    <div
+      class="pokemon gmax-card"
+      [routerLink]="['/gmax', gmax.routeName]"
+      role="button"
+      tabindex="0"  
+    >
+      <div class="imgContainer">
+        <img [src]="gmax.image" [alt]="gmax.name" class="imgPokemon" />
+      </div>
+
+      <div class="infoPokemon">
+        <span class="num" style="font-size: small"> #{{ gmax.displayId }} </span>
+
+        <h3 class="name">
+          {{ gmax.name }}
+        </h3>
+
+        <small class="types">
+          <span class="type1">
+            {{ gmax.type1 }}
+          </span>
+
+          @if (gmax.type2) {
+            <span class="type2">
+              {{ gmax.type2 }}
+            </span>
+          }
+        </small>
+      </div>
+
+      <div class="gmax-icon-circle">
+        <img [src]="gmax.gmaxIcon" alt="Gigantamax Symbol" class="gmax-icon-img" />
+      </div>
+    </div>
+  }
+</div>

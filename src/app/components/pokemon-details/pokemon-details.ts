@@ -13,7 +13,7 @@ export class PokemonDetails implements OnInit {
 
   stats: any[] = [];
   totalStats = 0;
-
+  
   typeImages: Record<string, string> = {
     normal:
       'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/normal-type.png',

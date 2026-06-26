@@ -1,1 +1,40 @@
-<p>poke-megas works!</p>
+<button class="back" routerLink="/header">Go back.</button>
+
+<div class="pokemonContainer" id="pokemonContainer">
+  @for (mega of megas; track mega.routeName) {
+    <div
+      class="pokemon mega-card"  
+      [routerLink]="['/megas', mega.routeName]"
+      role="button"
+      tabindex="0"
+    >
+      <div class="imgContainer">
+        <img [src]="mega.image" [alt]="mega.name" class="imgPokemon" />
+      </div>
+  
+      <div class="infoPokemon">
+        <span class="num" style="font-size: small"> #{{ mega.displayId }} </span>
+
+        <h3 class="name">    
+          {{ mega.name }}
+        </h3>           
+  
+        <small class="types"> 
+          <span class="type1">
+            {{ mega.type1 }}
+          </span>
+
+          @if (mega.type2) {
+            <span class="type2">
+              {{ mega.type2 }}
+            </span>
+          }
+        </small>
+      </div>
+
+      <div class="mega-stone-circle">
+        <img [src]="mega.megaIcon" alt="Mega Evolution Symbol" class="mega-stone-img" />
+      </div>
+    </div>
+  }
+</div>

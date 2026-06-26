@@ -4,27 +4,23 @@ import { Auth } from './components/auth/auth';
 import { Header } from './components/header/header';
 import { Pokemon } from './components/pokemon/pokemon';
 import { PokemonDetails } from './components/pokemon-details/pokemon-details';
+import { PokeMegas } from './components/poke-megas/poke-megas';
 
 export const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'header',
-  //   pathMatch: 'full',
-  // },
-
-  // {
-  //   path: 'auth',
-  //   component: Auth,
-  // },
-
-  // {
-  //   path: 'header',
-  //   component: Header,
-  // },
+  {
+    path: '',
+    redirectTo: 'header',
+    pathMatch: 'full',
+  },
 
   {
-    path: 'pokemon/:id',
-    component: PokemonDetails,
+    path: 'auth',
+    component: Auth,
+  },
+
+  {
+    path: 'header',
+    component: Header,
   },
 
   {
@@ -32,8 +28,23 @@ export const routes: Routes = [
     component: Pokemon,
   },
 
-  // {
-  //   path: '**',
-  //   redirectTo: 'header',
-  // },
+  {
+    path: 'pokemon/:id',
+    component: PokemonDetails,
+  },
+
+  {
+    path: 'megas',
+    component: PokeMegas,
+  },
+
+  {
+    path: 'megas/:name',
+    component: PokemonDetails,
+  },
+
+  {
+    path: '**',
+    redirectTo: 'header',
+  },
 ];

@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
-
 @Component({
   selector: 'app-pokemon-details',
-  imports: [RouterLink,],
+  imports: [RouterLink],
   templateUrl: './pokemon-details.html',
   styleUrl: './pokemon-details.css',
 })
-
-
 export class PokemonDetails implements OnInit {
   pokemon: any = null;
   species: any = null;
@@ -18,46 +15,62 @@ export class PokemonDetails implements OnInit {
   totalStats = 0;
 
   typeImages: Record<string, string> = {
-  NORMAL: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/normal-type.png',
-  FIRE: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/fire-type.png',
-  WATER: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/water-type.png',
-  ELECTRIC: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/electric-type.png',
-  GRASS: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/grass-type.png',
-  ICE: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/ice-type.png',
-  FIGHTING: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/fighting-type.png',
-  POISON: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/poison-type.png',
-  GROUND: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/ground-type.png',
-  FLYING: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/flying-type.png',
-  PSYCHIC: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/psychic-type.png',
-  BUG: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/bug-type.png',
-  ROCK: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/rock-type.png',
-  GHOST: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/ghost-type.png',
-  DRAGON: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/dragon-type.png',
-  DARK: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/dark-type.png',
-  STEEL: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/metal-type.png',
-  FAIRY: 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/fairy-type.png',
-};
+    normal:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/normal-type.png',
+    fire: 
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/fire-type.png',
+    water:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/water-type.png',
+    electric:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/electric-type.png',
+    grass:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/grass-type.png',
+    ice: 
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/ice-type.png',
+    fighting:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/fighting-type.png',
+    poison:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/poison-type.png',
+    ground:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/ground-type.png',
+    flying:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/flying-type.png',
+    psychic:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/psychic-type.png',
+    bug:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/bug-type.png',
+    rock: 
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/rock-type.png',
+    ghost:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/ghost-type.png',
+    dragon:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/dragon-type.png',
+    dark: 
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/dark-type.png',
+    steel:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/metal-type.png',
+    fairy:
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/fairy-type.png',
+  };
 
   constructor(private route: ActivatedRoute) {}
 
-  async ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+  
 
-    if (!id) {
+  async getDetails(pokemonKey: string | number) {
+    const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonKey}`;
+
+    const pokemonResp = await fetch(pokemonUrl);
+
+    if (!pokemonResp.ok) {
+      console.error(`Pokémon não encontrado: ${pokemonKey}`);
       return;
     }
 
-    await this.getDetails(id);
-  }
-
-  async getDetails(id: number) {
-    const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${id}`;
-    const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
-
-    const pokemonResp = await fetch(pokemonUrl);
-    const speciesResp = await fetch(speciesUrl);
-
     const pokemonData = await pokemonResp.json();
+
+    const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonData.species.name}`;
+    const speciesResp = await fetch(speciesUrl);
     const speciesData = await speciesResp.json();
 
     this.species = speciesData;
@@ -67,7 +80,7 @@ export class PokemonDetails implements OnInit {
       displayId: pokemonData.id.toString().padStart(3, '0'),
       name: this.capitalize(pokemonData.name),
       image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonData.id}.png`,
-      types: pokemonData.types.map((item: any) => item.type.name.toUpperCase()),
+      types: pokemonData.types.map((item: any) => item.type.name),
       abilities: pokemonData.abilities.map((item: any) => ({
         name: this.capitalize(item.ability.name),
         hidden: item.is_hidden,
@@ -112,6 +125,16 @@ export class PokemonDetails implements OnInit {
     }
 
     return `url("${imageUrl}")`;
+  }
+  async ngOnInit() {
+    const pokemonKey =
+      this.route.snapshot.paramMap.get('id') ?? this.route.snapshot.paramMap.get('name');
+
+    if (!pokemonKey) {
+      return;
+    }
+
+    await this.getDetails(pokemonKey);
   }
 
 }

@@ -5,6 +5,7 @@ import { Header } from './components/header/header';
 import { Pokemon } from './components/pokemon/pokemon';
 import { PokemonDetails } from './components/pokemon-details/pokemon-details';
 import { PokeMegas } from './components/poke-megas/poke-megas';
+import { PokeGmax } from './components/poke-gmax/poke-gmax';
 
 export const routes: Routes = [
   {
@@ -41,6 +42,10 @@ export const routes: Routes = [
   {
     path: 'megas/:name',
     component: PokemonDetails,
+  },
+  {
+    path: 'gmax',
+    component: PokeGmax
   },
 
   {

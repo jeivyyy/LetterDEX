@@ -141,7 +141,7 @@ export class PokeMegas implements OnInit {
       megaIcon: this.megaEvolutionSymbol
     });
   }
-
+  
   async fetchMegas() {
     const requests = this.megaForms.map((mega) => this.getMegaPokemon(mega.apiName));
 

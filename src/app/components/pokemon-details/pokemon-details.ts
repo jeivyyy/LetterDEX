@@ -33,7 +33,7 @@ export class PokemonDetails implements OnInit {
     poison:
       'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/poison-type.png',
     ground:
-      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/ground-type.png',
+      'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/ground-typr.png',
     flying:
       'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/flying-type.png',
     psychic:
@@ -58,8 +58,6 @@ export class PokemonDetails implements OnInit {
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef
   ) {}
-
-  
 
   async getDetails(pokemonKey: string | number) {
     const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonKey}`;

@@ -23,7 +23,7 @@ export class Pokemon implements OnInit {
 
     this.pokemons = [
       ...this.pokemons,
-      {
+      {  
       id: pokemon.id,
       displayId: pokemon.id.toString().padStart(3, '0'),
       name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),

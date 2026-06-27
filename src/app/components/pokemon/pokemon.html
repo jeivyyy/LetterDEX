@@ -33,6 +33,7 @@
   <button class="back" routerLink="/header">
       Go back.
     </button>
+
   <div class="pokemonContainer" id="pokemonContainer">    
     
   @for (pokemon of pokemons; track pokemon.id) {      
@@ -41,7 +42,7 @@
         <img [src]="pokemon.image" [alt]="pokemon.name" class="imgPokemon">
       </div>     
       <div class="infoPokemon">      
-        <span class="num" style="font-size: small"> {{ pokemon.id }} </span>
+        <span class="num" style="font-size: small"> {{ pokemon.id }} </span>  
         <h3 class="name"> {{ pokemon.name }} </h3>
         <small class="types">Type: 
           <span class="type1"> {{ pokemon.type1 }} </span>  
@@ -52,6 +53,6 @@
       </div>
     </div>
   }    
-  </div>
+  </div>  
 </body>
 </html>

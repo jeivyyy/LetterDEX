@@ -1,4 +1,4 @@
-/* this CSS file will follow the same struture as the header.html file */
+
 
 html{
     display: flex;
@@ -11,11 +11,6 @@ html{
     padding: 0%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-/* @font-face {
-    font-family: 'GS Heavy Italic';
-    src: url('src/app/assets/fonts/gill-sans-2/Gill Sans Heavy Italic.otf');
-} */
-
 
 .header{
     

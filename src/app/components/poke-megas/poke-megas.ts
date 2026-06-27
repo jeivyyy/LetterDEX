@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,6 +8,10 @@ import { RouterLink } from '@angular/router';
   styleUrl: './poke-megas.css',
 })
 export class PokeMegas implements OnInit {
+  constructor(
+    private cdr: ChangeDetectorRef
+  ) {}
+
   megas: any[] = [];
   megaEvolutionSymbol = 'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/components/poke-megas/icon/Mega_Evolution_symbol.png';
 
@@ -130,8 +134,10 @@ export class PokeMegas implements OnInit {
     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`;
     
 
-    this.megas.push({
-      id: pokemon.id,
+    this.megas = [
+      ...this.megas,
+      {
+        id: pokemon.id,
       routeName: pokemon.name,
       displayId: this.getSpeciesIdFromUrl(pokemon.species.url).toString().padStart(3, '0'),
       name: this.formatMegaName(pokemon.name),
@@ -139,7 +145,9 @@ export class PokeMegas implements OnInit {
       type1: pokemonTypes[0],
       type2: pokemonTypes[1] ?? '',
       megaIcon: this.megaEvolutionSymbol
-    });
+      }
+    ]
+    this.cdr.detectChanges();
   }
   
   async fetchMegas() {
@@ -148,6 +156,7 @@ export class PokeMegas implements OnInit {
     await Promise.all(requests);
 
     this.megas.sort((a, b) => Number(a.displayId) - Number(b.displayId));
+    this.cdr.detectChanges();
   }
 
   getSpeciesIdFromUrl(url: string): number {

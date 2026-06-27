@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,6 +8,10 @@ import { RouterLink } from '@angular/router';
   styleUrl: './poke-gmax.css',
 })
 export class Gmax implements OnInit {
+  constructor(
+    private cdr: ChangeDetectorRef
+  ) {}
+
   gmaxPokemons: any[] = [];
 
   gmaxIcon =
@@ -81,8 +85,10 @@ export class Gmax implements OnInit {
 
     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`;
 
-    this.gmaxPokemons.push({
-      id: pokemon.id,
+    this.gmaxPokemons =[
+      ...this.gmaxPokemons,
+      {
+        id: pokemon.id,
       routeName: pokemon.name,
       displayId: this.getSpeciesIdFromUrl(pokemon.species.url)
         .toString()
@@ -92,7 +98,9 @@ export class Gmax implements OnInit {
       type1: pokemonTypes[0],
       type2: pokemonTypes[1] ?? '',
       gmaxIcon: this.gmaxIcon,
-    });
+      }
+    ] 
+    this.cdr.detectChanges();
   }
 
   getSpeciesIdFromUrl(url: string): number {

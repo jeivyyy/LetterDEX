@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -12,6 +12,8 @@ export class Pokemon implements OnInit {
   pokemons: any[] = [];
   pokemonCount = 151;
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   async getPokemon(id: number) {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const resp = await fetch(url);
@@ -19,20 +21,25 @@ export class Pokemon implements OnInit {
 
     const pokemonTypes: string[] = pokemon.types.map((item: any) => item.type.name);
 
-    this.pokemons.push({
+    this.pokemons = [
+      ...this.pokemons,
+      {
       id: pokemon.id,
       displayId: pokemon.id.toString().padStart(3, '0'),
       name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
       image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`,
       type1: pokemonTypes[0],
       type2: pokemonTypes[1] ?? ''
-    });
+      }
+    ]
   }
 
   async fetchPokemon() {
     for (let i = 1; i <= this.pokemonCount; i++) {
       await this.getPokemon(i);
     }
+
+    this.cdr.detectChanges();
   }
 
   ngOnInit() {

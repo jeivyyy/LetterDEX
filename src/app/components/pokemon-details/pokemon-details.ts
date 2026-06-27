@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommentSection } from '../comment-section/comment-section';
 
@@ -54,7 +54,10 @@ export class PokemonDetails implements OnInit {
       'https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/types-imgs/fairy-type.png',
   };
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   
 
@@ -95,6 +98,7 @@ export class PokemonDetails implements OnInit {
     }));
 
     this.totalStats = this.stats.reduce((total, stat) => total + stat.value, 0);
+    this.cdr.detectChanges();
   }
 
   getStatLabel(statName: string) {

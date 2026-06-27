@@ -11,7 +11,7 @@ import { Gmax } from './components/poke-gmax/poke-gmax';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'header',
+    redirectTo: 'auth',
     pathMatch: 'full',
   },
 

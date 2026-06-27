@@ -1,1 +1,97 @@
-<p>comment-section works!</p>
+<div class="comment-section">
+
+  <div class="filter-area">
+    <button
+      type="button"
+      class="filter-button"
+      (click)="toggleFilterMenu()"
+      title="Filter comments"
+    >
+      <span class="filter-icon"></span>
+    </button>
+
+    @if (isFilterMenuOpen) {
+      <div class="tag-menu filter-menu">
+        @for (tag of availableTags; track tag) {
+          <button
+            type="button"
+            class="tag-option"
+            [class.active]="isFilterTagSelected(tag)"
+            (click)="toggleFilterTag(tag)"
+          >
+            {{ tag }}
+          </button>
+        }
+      </div>
+    }
+  </div>
+
+  <div class="comments-list">
+    @if (filteredComments.length > 0) {
+      @for (comment of filteredComments; track comment.id) {
+        <div class="comment-card">
+          <div class="comment-tags">
+            @for (tag of comment.tags; track tag) {
+              <span class="comment-tag">
+                {{ tag }}
+              </span>
+            }
+          </div>
+
+          <p class="comment-text">
+            {{ comment.text }}
+          </p>
+        </div>
+      }
+    } @else {
+      <div class="empty-comments">
+        No comments found.
+      </div>
+    }
+  </div>
+
+  <div class="comment-input-area">
+    <div class="selected-tags">
+      @for (tag of selectedCommentTags; track tag) {
+        <span class="selected-tag">
+          {{ tag }}
+        </span>
+      }
+    </div>
+
+    <div class="input-row">
+      <input
+        type="text"
+        class="comment-input"
+        placeholder="Write a comment..."
+        [(ngModel)]="commentText"
+        (keydown.enter)="addComment()"
+      />
+
+      <button
+        type="button"
+        class="tag-button"
+        (click)="toggleTagMenu()"
+        title="Add tags"
+      >
+        #
+      </button>
+    </div>
+
+    @if (isTagMenuOpen) {
+      <div class="tag-menu input-tag-menu">
+        @for (tag of availableTags; track tag) {
+          <button
+            type="button"
+            class="tag-option"
+            [class.active]="isCommentTagSelected(tag)"
+            (click)="toggleCommentTag(tag)"
+          >
+            {{ tag }}
+          </button>
+        }
+      </div>
+    }
+  </div>
+
+</div>

@@ -1,78 +1,85 @@
-<div class="info">
+<div class="details-page">
   @if (pokemon) {
-    <div class="bt-backg">
-      <button class="back" routerLink="/pokemon">Go back.</button>
-    </div>
-
-    <div class="pokemon-img-container">
-      <img
-        [src]="pokemon.image"  
-        [alt]="pokemon.name"
-        class="pokemon-zoom-out-img"
-        id="pokemon-zoom-out-img"       
-      />    
-    </div>               
-   
-    <div class="pokemon-details-card">           
-      <div class="info-grid">  
-        <div class="misc-infos">
-          <div class="span-info">
-            <span class="name">    
-              {{ pokemon.name }}
-            </span>       
-          </div>      
+    <div class="details-layout">
+      <div class="details-left">
+        <div class="bt-backg">
+          <button class="back" routerLink="/pokemon">Go back.</button>
         </div>
 
-        <div class="status-info">
-          <div class="types">
-            @for (type of pokemon.types; track type) {
-              <div class="type" [style.background-image]="getTypeBackground(type)">     
-                {{ type }} 
-              </div>   
-            }
-          </div>
+        <div class="pokemon-img-container">
+          <img
+            [src]="pokemon.image"
+            [alt]="pokemon.name"  
+            class="pokemon-zoom-out-img"
+            id="pokemon-zoom-out-img"
+          />
+        </div>
 
-          <div class="abilities">
-            @for (ability of pokemon.abilities; track ability.name) {
-              <div class="abls">
-                {{ ability.name }}
+        <div class="pokemon-details-card">
+          <div class="info-grid">
+            <div class="misc-infos">
+              <div class="span-info">
+                <span class="name">
+                  {{ pokemon.name }}
+                </span>
               </div>
-            }
-          </div>
-        
-          <div class="base-status-grid">
-            @for (stat of stats; track stat.name) {
-              <div class="status-row">
-                <div class="sts-card">
-                  <div class="slider">
-                    <div class="slider-progress" [style.width.%]="statPercent(stat.value)"></div>
+            </div>
 
-                    <small class="sts-name"> {{ stat.label }}: </small>
+            <div class="status-info">
+              <div class="types">
+                @for (type of pokemon.types; track type) {
+                  <div class="type" [style.background-image]="getTypeBackground(type)">
+                    {{ type }}
                   </div>
-                </div>
-
-                <div class="sts-value">
-                  {{ stat.value }}
-                </div>
+                }
               </div>
-            }
 
-            <span class="name-total">
-              Total:
-              <span class="total-value">        
-                {{ totalStats }}
-              </span>
-            </span>
+              <div class="abilities">
+                @for (ability of pokemon.abilities; track ability.name) {
+                  <div class="abls">
+                    {{ ability.name }}
+                  </div>    
+                }
+              </div>
+
+              <div class="base-status-grid">
+                @for (stat of stats; track stat.name) {
+                  <div class="status-row">
+                    <div class="sts-card">
+                      <div class="slider">
+                        <div
+                          class="slider-progress"
+                          [style.width.%]="statPercent(stat.value)"
+                        ></div>
+
+                        <small class="sts-name"> {{ stat.label }}: </small>
+                      </div>
+                    </div>
+
+                    <div class="sts-value">
+                      {{ stat.value }}
+                    </div>
+                  </div>
+                }
+
+                <span class="name-total">
+                  Total:
+                  <span class="total-value">
+                    {{ totalStats }}
+                  </span>
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
+        </div>  
+      </div>
+
+      <div class="details-right">  
+        <img src="https://raw.githubusercontent.com/jeivyyy/LetterDEX/master/src/app/assets/img/motion-background.gif" alt="" class="gif">
+        <app-comment-section></app-comment-section>
       </div>
     </div>
   } @else {
-    <p>Loading Pokémon details...</p>    
+    <p>Loading Pokémon details...</p>
   }
-
-  <div class="comment">
-
-  </div>
-
 </div>

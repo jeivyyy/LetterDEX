@@ -4,15 +4,17 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.info{
-  width: 600px;
+.info {
+  width: 100%;
+  overflow: visible;
+  padding: 0;
+
+  
 }
 
 .pokemon-details-card {
   width: 100%;
   max-width: 760px;
-
-  margin: 10px;
   padding-right: 40px;
 
   display: flex;
@@ -20,18 +22,18 @@
   flex-direction: column;
   align-items: start;
   gap: 28px;
-
   background-color: #f7f4f4;
   border-radius: 28px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+
 }
 
 .pokemon-img-container {
   width: 280px;
   height: 280px;
   position: absolute;
-  left: 380px;
-  top: 10px;
+  left: 460px;
+  top: 50px;
 }
 
 .pokemon-zoom-out-img {
@@ -42,7 +44,7 @@
 
 .info-grid {
   width: 100%;
-  max-height: 430px;
+  max-height: 100%;
   overflow: scroll;
   overflow: hidden;
   overflow-y: auto hidden;
@@ -71,12 +73,11 @@
   width: 50%;
   min-height: 36px;
 
-
   font-size: 100%;
   font-weight: bold;
   text-align: center;
 
- text-align: center;
+  text-align: center;
   border-radius: 999px;
   box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
 
@@ -103,7 +104,7 @@
   text-align: center;
   border-radius: 999px;
   border-style: none;
-  box-shadow:  0 3px 10px rgba(0, 0, 0, .30);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 
   background-size: cover;
   background-position: center;
@@ -111,7 +112,7 @@
 
   font-weight: bold;
   color: white;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, .8);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
   text-transform: capitalize;
 }
 
@@ -255,4 +256,58 @@
     0 3px 0 0 #dcdcdc,
     0 4px 0 0 #cacaca,
     0 4px 6px 0 #cecece;
+}
+
+.details-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.85;
+  z-index: -1;
+}
+
+.details-page {
+  min-height: 120vh;
+  position: relative;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+
+.details-layout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(520px, 1fr) 360px;
+  gap: 36px;
+  align-items: center;
+}
+
+.details-left {
+  width: 100%;
+}
+
+.details-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200%;
+}
+
+.gif{
+  position: absolute;
+  height: 95%;
+  right: -5%;
+  transform: rotate(4.9deg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 900px) {
+  .details-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .details-right {
+    margin-top: 24px;
+  }
 }

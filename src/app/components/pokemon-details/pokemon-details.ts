@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { CommentSection } from '../comment-section/comment-section';
 
 @Component({
   selector: 'app-pokemon-details',
-  imports: [RouterLink],
+  imports: [RouterLink, CommentSection],
   templateUrl: './pokemon-details.html',
   styleUrl: './pokemon-details.css',
 })

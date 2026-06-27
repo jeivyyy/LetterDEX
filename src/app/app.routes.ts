@@ -5,6 +5,7 @@ import { Pokemon } from './components/pokemon/pokemon';
 import { PokemonDetails } from './components/pokemon-details/pokemon-details';
 import { PokeMegas } from './components/poke-megas/poke-megas';
 import { Gmax } from './components/poke-gmax/poke-gmax';
+import { About } from './components/about/about';
 
 
 
@@ -23,6 +24,10 @@ export const routes: Routes = [
   {
     path: 'header',
     component: Header,
+  },
+  {
+    path: 'about',
+    component: About,
   },
 
   {

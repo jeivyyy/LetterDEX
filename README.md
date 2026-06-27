@@ -1,8 +1,239 @@
 # LetterDEX
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.0.
+LetterDEX is a visual Pokédex built with **Angular**, focused on Pokémon forms, type identity, base stats, comments and special transformations such as **Mega Evolution** and **Gigantamax**.
 
-## Development server
+The project uses data from the **PokeAPI** and displays Pokémon through a card-based interface with rounded layouts, soft shadows, animated assets, type backgrounds and interactive details pages.
+
+---
+
+## Preview
+
+LetterDEX is organized into different pages:
+
+* **Header**: main navigation page.
+* **Pokédex**: displays the first 151 Pokémon.
+* **Mega**: displays Mega Evolution forms.
+* **G-Max**: displays Gigantamax forms.
+* **Details**: displays Pokémon image, types, abilities, base stats and comments.
+* **About**: explains the project purpose and technologies.
+
+---
+
+## Features
+
+### Pokédex
+
+The Pokédex page loads the first 151 Pokémon and displays each one in a card format with:
+
+* Pokémon number
+* Name
+* Sprite
+* Primary type
+* Secondary type, when available
+
+Each card redirects the user to a details page.
+
+---
+
+### Mega Evolution
+
+The Mega page lists Mega Evolution forms using a custom card layout based on the main Pokédex style.
+
+Each Mega card includes:
+
+* Mega Pokémon sprite
+* Name
+* Types
+* Mega Evolution symbol
+* Route navigation to the details page
+
+Example route:
+
+```txt
+/megas/charizard-mega-x
+```
+
+---
+
+### Gigantamax
+
+The G-Max page follows the same visual pattern as the Mega page, but displays Gigantamax forms.
+
+Each G-Max card includes:
+
+* Gigantamax Pokémon sprite
+* Name
+* Types
+* Gigantamax/Dynamax symbol
+* Route navigation to the details page
+
+Example route:
+
+```txt
+/gmax/pikachu-gmax
+```
+
+---
+
+### Pokémon Details
+
+The details page is reused by different routes and can load Pokémon by ID or by form name.
+
+Supported route examples:
+
+```txt
+/pokemon/6
+/megas/charizard-mega-x
+/gmax/pikachu-gmax
+```
+
+The details page displays:
+
+* Pokémon image
+* Name
+* Types with individual background images
+* Abilities
+* Base stats with progress sliders
+* Total base stats
+* Comment section
+
+---
+
+### Comment Section
+
+The comment section allows users to write comments directly inside the Pokémon details page.
+
+Comments can be organized using tags:
+
+```txt
+#META
+#LOVE
+#HATE
+#FUNFACT
+```
+
+A comment can have multiple tags, but each tag can only be selected once per comment.
+
+The filter button allows users to filter visible comments by tag.
+
+---
+
+## Technologies
+
+This project was built with:
+
+* Angular
+* TypeScript
+* HTML
+* CSS
+* PokeAPI
+* Vercel
+
+---
+
+## API
+
+LetterDEX uses the PokeAPI to fetch Pokémon data.
+
+Main endpoint pattern:
+
+```txt
+https://pokeapi.co/api/v2/pokemon/{pokemon}
+```
+
+Examples:
+
+```txt
+https://pokeapi.co/api/v2/pokemon/1
+https://pokeapi.co/api/v2/pokemon/charizard-mega-x
+https://pokeapi.co/api/v2/pokemon/pikachu-gmax
+```
+
+Sprites are loaded from the official PokeAPI sprites repository:
+
+```txt
+https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/{id}.png
+```
+
+---
+
+## Project Structure
+
+```txt
+src/
+ └── app/
+     ├── components/
+     │   ├── auth/
+     │   ├── header/
+     │   ├── pokemon/
+     │   ├── pokemon-details/
+     │   ├── poke-megas/
+     │   ├── poke-gmax/
+     │   ├── comment-section/
+     │   └── about/
+     │
+     ├── assets/
+     │   ├── img/
+     │   └── types-imgs/
+     │
+     ├── app.routes.ts
+     ├── app.config.ts
+     └── app.ts
+```
+
+---
+
+## Routes
+
+```ts
+export const routes = [
+  {
+    path: '',
+    redirectTo: 'header',
+    pathMatch: 'full',
+  },
+  {
+    path: 'auth',
+    component: Auth,
+  },
+  {
+    path: 'header',
+    component: Header,
+  },
+  {
+    path: 'pokemon',
+    component: Pokemon,
+  },
+  {
+    path: 'pokemon/:id',
+    component: PokemonDetails,
+  },
+  {
+    path: 'megas',
+    component: PokeMegas,
+  },
+  {
+    path: 'megas/:name',
+    component: PokemonDetails,
+  },
+  {
+    path: 'gmax',
+    component: PokeGmax,
+  },
+  {
+    path: 'gmax/:name',
+    component: PokemonDetails,
+  },
+  {
+    path: 'about',
+    component: About,
+  },
+];
+```
+
+---
+
+## Development Server
 
 To start a local development server, run:
 
@@ -10,50 +241,103 @@ To start a local development server, run:
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Then open your browser and navigate to:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```txt
+http://localhost:4200/
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The application will automatically reload whenever you modify the source files.
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## Build
 
-To build the project run:
+To build the project, run:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Unit Tests
+
+To execute unit tests with the configured test runner, run:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## Code Scaffolding
+
+Angular CLI includes code scaffolding tools.
+
+To generate a new component:
 
 ```bash
-ng e2e
+ng generate component component-name
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+For a complete list of available schematics:
 
-## Additional Resources
+```bash
+ng generate --help
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## Deployment
+
+The project can be deployed on Vercel.
+
+Basic production flow:
+
+```bash
+ng build
+```
+
+Then deploy the generated build output according to the Vercel configuration.
+
+---
+
+## Visual Identity
+
+LetterDEX uses a playful interface inspired by Pokémon UI elements.
+
+The main visual choices include:
+
+* Rounded cards
+* 3D-style buttons
+* Soft shadows
+* Type-based backgrounds
+* Animated visual assets
+* Progress sliders for base stats
+* Special icons for Mega and G-Max cards
+
+---
+
+## Status
+
+Current implemented pages:
+
+* Header
+* Pokédex
+* Pokémon Details
+* Mega Evolutions
+* Gigantamax Forms
+* Comment Section
+* About Page
+
+---
+
+## Credits
+
+Pokémon data and sprites are provided by the PokeAPI and the official PokeAPI sprites repository.
+
+LetterDEX is a personal study project built with Angular.
+
